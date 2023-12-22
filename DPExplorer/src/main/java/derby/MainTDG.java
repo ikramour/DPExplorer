@@ -36,7 +36,6 @@ public class MainTDG {
 
 	public static void main(String[] args) throws SQLException, ParseException {
 		InitDB initDB = new InitDB();
-		SimpleDateFormat sdf = new SimpleDateFormat("mm:ss");
 
 		String csvFile = "src/main/resources/dpe.csv";
 
