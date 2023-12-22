@@ -16,16 +16,6 @@ public class InitDB {
 	public DiagnosticTDG diagnosticTDG;
 	public BatimentTDG batimentTDG;
 	
-	
-	
-	public InitDB() throws SQLException {
-		initRue();
-		initCodePostal();
-		initVille();
-		initDiagnostic();
-		initBatiment();
-	}
-	
 	private void initBatiment() throws SQLException {
 		new BatimentTDG().createTable();
 	}
@@ -45,6 +35,14 @@ public class InitDB {
 	
 	public void initVille() throws SQLException {
 		new VilleTDG().createTable();
+	}
+	
+	public void initDataBase() throws SQLException {
+		initRue();
+		initCodePostal();
+		initVille();
+		initDiagnostic();
+		initBatiment();
 	}
 
 }
