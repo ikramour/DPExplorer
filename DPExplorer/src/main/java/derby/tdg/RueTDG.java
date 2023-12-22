@@ -26,18 +26,17 @@ public class RueTDG extends AbstractTDG<Rue> {
 	{
 		try {
 			QUERIES.load(Ville.class.getResourceAsStream("Rue.properties"));
-			System.out.println(QUERIES);
 			CREATE = QUERIES.getProperty("CREATE");
 			DROP = QUERIES.getProperty("DROP");
 		} catch (IOException ioe) {
 			System.err.println(ioe);
 		}
-
 	}
 
 	@Override
 	public void createTable() throws SQLException {
 		try (Statement stm = TDGRegistry.getConnection().createStatement()) {
+			System.out.println(CREATE);
 			stm.executeUpdate(CREATE);
 		}
 	}
@@ -58,15 +57,6 @@ public class RueTDG extends AbstractTDG<Rue> {
 				if (rs.next()) {
 					a = new Rue();
 					a.setNom(rs.getString(2));
-					
-					/*
-					 * a.setBatiments(rs.getArray(2)); a.setRues(rs.getArray(3));
-					 * a.setCodePostal(rs.getArray(4)); ArrayList<long> batimentsId =
-					 * rs.getArray(5); if (batimentsId != null) { List<Batiment> batimentlist ; }
-					 * for(long id :batimentsId){
-					 * batimentList.add(TDGRegistry.findTDG(Batiment.class).findById(id)); }
-					 * a.setBatiments(batimentList);
-					 */
 				}
 			}
 		}

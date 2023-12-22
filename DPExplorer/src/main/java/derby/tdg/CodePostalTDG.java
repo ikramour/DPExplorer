@@ -27,7 +27,6 @@ public class CodePostalTDG extends AbstractTDG<CodePostal> {
 	{
 		try {
 			QUERIES.load(CodePostal.class.getResourceAsStream("CodePostal.properties"));
-			System.out.println(QUERIES);
 			CREATE = QUERIES.getProperty("CREATE");
 			DROP = QUERIES.getProperty("DROP");
 		} catch (IOException ioe) {
@@ -39,6 +38,7 @@ public class CodePostalTDG extends AbstractTDG<CodePostal> {
 	@Override
 	public void createTable() throws SQLException {
 		try (Statement stm = TDGRegistry.getConnection().createStatement()) {
+			System.out.println(CREATE);
 			stm.executeUpdate(CREATE);
 		}
 	}

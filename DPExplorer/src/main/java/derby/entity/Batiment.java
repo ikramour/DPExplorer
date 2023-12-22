@@ -5,7 +5,7 @@ import derby.Persistable;
 public class Batiment implements Persistable {
 
 	private long id;
-	private int numero;
+	private String numero;
 	private String anneeConstruction;
 	
 	private Rue rue;
@@ -19,7 +19,7 @@ public class Batiment implements Persistable {
 	}
 	
 	
-	public Batiment(int numVoie, String anneeConstruction, Rue nomRue, CodePostal cPostal, Ville nomVille,
+	public Batiment(String numVoie, String anneeConstruction, Rue nomRue, CodePostal cPostal, Ville nomVille,
 			Diagnostic diagnostic) {
 		this.numero = numVoie;
 		this.anneeConstruction = anneeConstruction;
@@ -30,7 +30,7 @@ public class Batiment implements Persistable {
 	}
 
 
-	public Batiment(int numero, String anneeConstruction, Diagnostic diagnostic, CodePostal codepostal, Ville ville,
+	public Batiment(String numero, String anneeConstruction, Diagnostic diagnostic, CodePostal codepostal, Ville ville,
 			Rue rue) {
 		super();
 		this.numero = numero;
@@ -40,10 +40,10 @@ public class Batiment implements Persistable {
 		this.ville = ville;
 		this.rue = rue;
 	}
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 	public String getAnneeConstruction() {

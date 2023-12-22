@@ -12,7 +12,8 @@ import derby.entity.Diagnostic;
 
 public class DiagnosticTDG extends AbstractTDG<Diagnostic> {
 
-	private static final String CREATE = "CREATE TABLE APP.DIAGNOSTIC (ID_DIAGNOSTIC BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),CLASSE_ENERGETIQUE VARCHAR(1),CONSTRAINT DIAGNOSTIC_PK PRIMARY KEY (ID_DIAGNOSTIC))";
+	private static final String CREATE = "CREATE TABLE APP.DIAGNOSTIC (ID_DIAGNOSTIC BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),"
+			+ "CLASSE_ENERGETIQUE VARCHAR(1),CONSOMMATION VARCHAR(100),CONSTRAINT DIAGNOSTIC_PK PRIMARY KEY (ID_DIAGNOSTIC))";
 	private static final String  DROP="DROP TABLE Diagnostic";
 	private static final String INSERT = "INSERT INTO Diagnostic (CLASSE_ENERGETIQUE,CONSOMMATION) VALUES(?,?)";
 	private static final String UPDATE = "UPDATE Diagnostic d SET s.CLASSE_ENERGETIQUE=?, d.CONSOMMATION = ?,  WHERE d.Diagnostic_ID = ?";
@@ -23,6 +24,7 @@ public class DiagnosticTDG extends AbstractTDG<Diagnostic> {
 	@Override
 	public void createTable() throws SQLException {
 		try (Statement stm = TDGRegistry.getConnection().createStatement()) {
+			System.out.println(CREATE);
 			stm.executeUpdate(CREATE);
 		}
 	}

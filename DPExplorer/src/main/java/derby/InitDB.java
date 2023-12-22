@@ -10,8 +10,6 @@ import derby.tdg.VilleTDG;
 
 public class InitDB {
 	
-	
-	
 	public RueTDG rueTDG;
 	public CodePostalTDG codePostalTDG;
 	public VilleTDG villeTDG;
@@ -48,10 +46,5 @@ public class InitDB {
 	public void initVille() throws SQLException {
 		new VilleTDG().createTable();
 	}
-	
-	
-	
-	
-	
 
 }
